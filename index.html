@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Progress Bar</title>
+</head>
+<body>
+    <h2>HTML</h2>
+    <div class="progress">
+        <div class="done" data-progress="85"></div>
+    </div>
+
+    <h2>CSS</h2>
+    <div class="progress">
+        <div class="done" data-progress="95"></div>
+    </div>
+
+    <h2>JavaScript</h2>
+    <div class="progress">
+        <div class="done" data-progress="70"></div>
+    </div>
+
+    <script>
+        const done = document.querySelectorAll('.done');
+
+        done.forEach(e => {
+            setTimeout(() => {
+                if(e.getAttribute('data-progress') > 100) {
+                    e.innerHTML = `100%`;
+                    e.style.width = `${e.getAttribute('data-progress')}%`;
+                    e.style.opacity = 1;
+                } else {
+                    e.innerHTML = `${e.getAttribute('data-progress')}`;
+                    e.style.width = `${e.getAttribute('data-progress')}%`;
+                    e.style.opacity = 1;
+                }
+            }, 300)
+        })
+    </script>
+</body>
+</html>
